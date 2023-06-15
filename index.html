@@ -66,15 +66,13 @@
             
             <ons-card style="border-radius: 20px; padding: 10px;">
                 <center class="contenedor-flexbox">
-                <input class="inputText" id="fecha1" modifier="underbar" type="date" disabled/>
-                <span style="font-weight: bold; color: black; margin-left: 10px; margin-right: 10px;">A</span>
-                <input class="inputText" id="fecha2" modifier="underbar" type="date" disabled/>
-                <div style="margin: 10px;">
-                    <ons-checkbox name="color" input-id="radioTodo" onclick="bloquearFechas(event)" checked></ons-checkbox> <br> Todo
-                </div>
-               
-            
-            </center>
+                    <input class="inputText" id="fecha1" modifier="underbar" type="date" disabled onchange="llenarFecha()"/>
+                    <span style="font-weight: bold; color: black; margin-left: 10px; margin-right: 10px;">A</span>
+                    <input class="inputText" id="fecha2" modifier="underbar" type="date" disabled onchange="llenarFecha()"/>
+                    <div style="margin: 10px;">
+                        <ons-checkbox name="color" input-id="radioTodo" onclick="bloquearFechas(event)" checked></ons-checkbox> <br> Todo
+                    </div> 
+                </center>
             </ons-card>
             
             
@@ -136,11 +134,14 @@
                 </ons-button>  
             </center-->
             <br><br><br>
-            
-            
-            <ons-fab style="background-color: rgb(255, 255, 255);" onclick="nextPageFunction('servicioAgregar.html',setBuscarClienteServicio)" position="bottom right">
-                <i class="fa-solid fa-plus" style="color: #44BD66"></i>
-            </ons-fab>
+
+            <ons-card class="cookies" style="padding: 15px;">
+                <center>
+                    <ons-button modifier="large" class=" boton-color" onclick="nextPageFunction('servicioAgregar.html',setBuscarClienteServicio)" style="border-radius: 20px;">
+                        </i> Agregar Servicio
+                    </ons-button>
+                </center>
+            </ons-card>
 
         </ons-page>
     </template>
@@ -185,10 +186,14 @@
             <ons-list style="background: rgba(76, 175, 80, 0.0) ">
                 <ons-lazy-repeat id="listaClientes"></ons-lazy-repeat>
             </ons-list>
-            
-            <ons-fab style="background-color: rgb(255, 255, 255);" onclick="nextPage('clienteAgregar.html')" position="bottom right">
-                <i class="fa-solid fa-plus" style="color: #44BD66"></i>
-            </ons-fab>
+
+            <ons-card class="cookies" style="padding: 15px;">
+                <center>
+                    <ons-button modifier="large" class=" boton-color" onclick="nextPage('clienteAgregar.html')" style="border-radius: 20px;">
+                        Agregar Cliente
+                    </ons-button>
+                </center>
+            </ons-card>
             
         </ons-page>
     </template>
@@ -384,7 +389,7 @@
             <ons-card class="cookies" style="padding: 15px;">
                 <center>
                     <ons-button modifier="large" class=" boton-color" onclick="setAgregarServicio()" style="border-radius: 20px;">
-                        <i class="fa-solid fa-plus" ></i> Agregar Servicio
+                        <i class="fa-solid fa-floppy-disk" ></i> Guardar
                     </ons-button>
                 </center>
             </ons-card>
@@ -409,6 +414,18 @@
             
             <ons-card  style="padding: 0; border-radius: 20px;">
                 <ons-list class="list-sin-fondo">
+
+
+                    <ons-list-item modifier="nodivider">
+                        <div class="left">
+                            <i class="fa-solid fa-key fa-2x" style="color: #44BD66"></i>
+                        </div>
+                        <div class="center">
+                            
+                            <input class="inputText" id="id" placeholder="" modifier="underbar" disabled/>
+
+                        </div>
+                    </ons-list-item>
 
                     <ons-list-item modifier="nodivider">
                         <div class="left">
@@ -487,8 +504,8 @@
             <br> <br> <br> <br> 
             <ons-card class="cookies" style="padding: 15px;">
                 <center>
-                    <ons-button modifier="large" class=" boton-color" onclick="" style="border-radius: 20px;">
-                        <i class="fa-solid fa-plus" ></i> Editar Servicio
+                    <ons-button modifier="large" class=" boton-color" onclick="setEditarServicio()" style="border-radius: 20px;">
+                        <i class="fa-solid fa-edit" ></i> Editar Servicio
                     </ons-button>
                 </center>
             </ons-card>
@@ -517,25 +534,10 @@
 
             <!--EJEMPLO DE ENLISTADO-->
             
-        
 
             <ons-list style="background: rgba(76, 175, 80, 0.0) ">
                 <ons-lazy-repeat id="listaClientesDeben"></ons-lazy-repeat>
             </ons-list>
-            
-            <ons-card class="cookies">
-                <center class="contenedor-flexbox">
-                    <input class="inputText" id="fecha1" modifier="underbar" type="date"/>
-                    <span style="font-weight: bold; color: black; margin-left: 10px; margin-right: 10px;">A</span>
-                    <input class="inputText" id="fecha2" modifier="underbar" type="date"/>
-                    <div style="margin: 10px;">
-                        <ons-checkbox name="color" input-id="radioTodo" onclick="bloquearFechas(event)" checked></ons-checkbox> 
-                        <br> 
-                        <span style="color: black;">Todo</span>
-                    </div>
-                </center>
-                
-            </ons-card>
             
         </ons-page>
     </template>

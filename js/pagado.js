@@ -1,11 +1,9 @@
 function setBuscarClientesPagado()
 {
-    var fechaInicio = 0;
-    var fechaTermino = 0;
     $('#loadingClientePagado').empty();
     $('#loadingClientePagado').append("<ons-progress-bar indeterminate></ons-progress-bar>");
 
-    servidor("https://fletes-delgado.000webhostapp.com/fletes/pagado/select.php",getBuscarClientesPagado);
+    servidor("https://fletes-delgado.000webhostapp.com/fletes/pagado/select.php?fecha1="+fecha1+"&fecha2="+fecha2,getBuscarClientesPagado);
 }
 function getBuscarClientesPagado(xhttp)
 {
@@ -18,7 +16,7 @@ function setBuscarClientePagadoServicios(id)
 {
     $('#loadingServiciosPagado').empty();
     $('#loadingServiciosPagado').append("<ons-progress-bar indeterminate></ons-progress-bar>");
-    servidor("https://fletes-delgado.000webhostapp.com/fletes/pagado/clienteServicios.php?cliente="+id,getBuscarClientePagadoServicios);
+    servidor("https://fletes-delgado.000webhostapp.com/fletes/pagado/clienteServicios.php?cliente="+id+"&fecha1="+fecha1+"&fecha2="+fecha2,getBuscarClientePagadoServicios);
 }
 function getBuscarClientePagadoServicios(xhttp)
 {
@@ -33,7 +31,7 @@ function enlistarClientesPagadoServicios(arrayJson)
         //"id": "2", "origen": "ECO EMPAQUES", "destino": "PCM", "hrInicio": "10:53:00", "hrTermino": "00:52:00", "costo": "1500", "fecha": "2023-06-26", "observaciones": ""
     html += '<ons-card class="enlistar boton" onclick="" style="padding: 15px;">';
     html += '    <div>';
-    html += '        <div style="float: right; font-weight: bold; color: gray;">'+arrayJson.fecha+'</div>';
+    html += '        <div style="float: right; font-weight: bold; color: gray;">Fecha: '+arrayJson.fecha+'</div>';
     html += '        <table>';
     html += '            <tr>';
     html += '                <td style="font-weight: bold">Origen:</td> ';
@@ -59,6 +57,7 @@ function enlistarClientesPagadoServicios(arrayJson)
     html += '            </tr>';
     html += '        </table>';
     html += '        <br>';
+    html += '        <div style="float: right; font-weight: bold; color: gray;">Pagado: '+arrayJson.fechaPagado+'</div>';
     html += '        <center><div style="font-size: 25px; font-weight: bold; color:#03C03C">  $ '+new Intl.NumberFormat().format(arrayJson.costo)+'</div></center>';
     html += '    </div>'; 
     html += '</ons-card>';  

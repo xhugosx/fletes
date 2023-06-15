@@ -133,3 +133,7 @@ td{
     border-radius: 20px;
     
 }
+
+input:disabled {
+    background: #ccc;
+  }

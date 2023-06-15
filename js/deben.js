@@ -1,17 +1,59 @@
+ var idCliente ;
+//editar servicio
 
-//bucar cliente para editarlo
+function setEditarServicio()
+{
+    var id = $("#id").val();
+    var origen = $('#origen').val();
+    var destino = $('#destino').val();
+    var hrInicio = $('#hrInicio').val();
+    var hrTermino = $('#hrTermino').val();
+    var costo = $('#costo').val();
+    var fecha = $('#fecha').val();
+    var observaciones = $('#observaciones').val();
+    idCliente = $('#cliente').val();
+
+
+    if(!vacio(origen,destino,hrInicio,hrTermino,costo,fecha,idCliente))
+    {
+        servidor("https://fletes-delgado.000webhostapp.com/fletes/servicio/update.php?origen="+origen+"&destino="+destino+"&hrInicio="+hrInicio+"&hrTermino="+hrTermino+"&costo="+costo+"&fecha="+fecha+"&observaciones="+observaciones+"&idCliente="+idCliente+"&id="+id,getEditarServicio);
+    }
+    else alerta("Espacios vacios!");
+
+
+
+}
+function getEditarServicio(xhttp)
+{
+    var respuesta = xhttp.responseText;
+    if(respuesta == 1)
+    {
+        alerta("Servicio Editado!");
+        resetearPilaFunction(setBuscarClienteDebeServicios,idCliente);
+    }
+    else alerta("No se pudo editar!")
+    //console.log(respuesta);
+
+}
+
+
+//bucar servicio para editarlo
 
 function setBuscarServicioEditar(id)
 {
     //llenar option de los clientes
     setBuscarClienteServicio();
-    servidor("https://fletes-delgado.000webhostapp.com/fletes/deben/clienteServicios.php?id="+id,getBuscarServicioEditar);
+    setTimeout(() => {
+        servidor("https://fletes-delgado.000webhostapp.com/fletes/deben/clienteServicios.php?id="+id,getBuscarServicioEditar);
+    }, 200);
+    
 }
 function getBuscarServicioEditar(xhttp)
 {
     var respuesta = xhttp.responseText;
     var arrayJson = respuesta.split('|');
     var tempJson = JSON.parse(arrayJson[0]);
+    $('#id').val(tempJson.id);
     $('#origen').val(tempJson.origen);
     $('#destino').val(tempJson.destino);
     $('#hrInicio').val(tempJson.hrInicio);
@@ -25,7 +67,7 @@ function getBuscarServicioEditar(xhttp)
 
 function setMandarIngresoServicio(idServicio,fecha)
 {
-    servidor("https://fletes-delgado.000webhostapp.com/fletes/servicio/update.php?idServicio="+idServicio+"&fecha="+fecha,getMandarIngresoServicio);
+    servidor("https://fletes-delgado.000webhostapp.com/fletes/ingreso/add.php?idServicio="+idServicio+"&fecha="+fecha,getMandarIngresoServicio);
 }
 function getMandarIngresoServicio(xhttp)
 {
@@ -35,6 +77,7 @@ function getMandarIngresoServicio(xhttp)
         alerta("Servicio Pagado");
         resetearPilaFunction(setBuscarClientesDeben);
     }
+    console.log(respuesta);
 }
 
 
@@ -55,12 +98,10 @@ function getEliminarServicioDeben(xhttp)
 
 function setBuscarClientesDeben()
 {
-    var fechaInicio = 0;
-    var fechaTermino = 0;
     $('#loadingClienteDeben').empty();
     $('#loadingClienteDeben').append("<ons-progress-bar indeterminate></ons-progress-bar>");
 
-    servidor("https://fletes-delgado.000webhostapp.com/fletes/deben/select.php",getBuscarClientesDeben);
+    servidor("https://fletes-delgado.000webhostapp.com/fletes/deben/select.php?fecha1="+fecha1+"&fecha2="+fecha2,getBuscarClientesDeben);
     // actualizar siempre la pagina principal
     setBuscarHome();
 }
@@ -77,8 +118,7 @@ function setBuscarClienteDebeServicios(id)
 {
     $('#loadingServicios').empty();
     $('#loadingServicios').append("<ons-progress-bar indeterminate></ons-progress-bar>");
-    servidor("https://fletes-delgado.000webhostapp.com/fletes/deben/clienteServicios.php?cliente="+id,getBuscarClienteDebeServicios);
-    //console.log("https://fletes-delgado.000webhostapp.com/fletes/deben/clienteServicios.php?cliente="+id)
+    servidor("https://fletes-delgado.000webhostapp.com/fletes/deben/clienteServicios.php?cliente="+id+"&fecha1="+fecha1+"&fecha2="+fecha2,getBuscarClienteDebeServicios);
 }
 function getBuscarClienteDebeServicios(xhttp)
 {
@@ -124,7 +164,7 @@ function enlistarClientesServicios(arrayJson)
         //"id": "2", "origen": "ECO EMPAQUES", "destino": "PCM", "hrInicio": "10:53:00", "hrTermino": "00:52:00", "costo": "1500", "fecha": "2023-06-26", "observaciones": ""
     html += '<ons-card class="enlistar boton" onclick="opcionesDeben('+arrayJson.id+')" style="padding: 15px;">';
     html += '    <div>';
-    html += '        <div style="float: right; font-weight: bold; color: gray;">'+arrayJson.fecha+'</div>';
+    html += '        <div style="float: right; font-weight: bold; color: gray;">Fecha: '+arrayJson.fecha+'</div>';
     html += '        <table>';
     html += '            <tr>';
     html += '                <td style="font-weight: bold">Origen:</td> ';

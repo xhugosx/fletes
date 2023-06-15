@@ -72,6 +72,13 @@ function resetearPilaFunction(miFuncion)
         miFuncion();
     }); 
 }
+function resetearPilaFunction(miFuncion,dato)
+{
+    document.querySelector('ons-navigator').popPage().then(function(){
+        miFuncion(dato);
+    }); 
+}
+
 
 //LISTA INFINITA
 function listaInfinita(agregarHtml,eliminarLoadingHtml,arrayJson,miFuncion)
