@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'dosis';
+    src: url('../font/Dosis-VariableFont_wght.ttf');
+}
+
+*{
+    font-family: 'dosis';
+}
+
+.tituloCabecera{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+.cabecera{
+    background: #3FA378;
+}
+.page__background{
+    background: #3FA378;
+}
+
+ons-toolbar-button > i{
+    color: rgb(255, 255, 255);
+}
+
+.deben{
+    color: gray;
+    font-weight: bold;
+    font-size: 30px;
+}
+span.back-button__icon, span.back-button__label{
+    fill: white;
+    color: white;
+}
+ons-card.boton:active{
+    opacity: 50%;
+}
+span.tittle{
+    font-size: 15px;
+}
+
+.boton-ingreso{
+
+    width: 400px;
+    /*background-color: rgb(137, 112, 161);*/
+    border-radius: 10px;
+}
+.boton-busqueda{
+
+    width: 100px;
+    /*background-color: rgb(137, 112, 161);*/
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.contenedor-flexbox {
+    display: flex; /*Convertimos al menú en flexbox*/
+    justify-content: space-between; /*Con esto le indicamos que margine todos los items que se encuentra adentro hacia la derecha e izquierda*/
+    align-items: center; /*con esto alineamos de manera vertical*/
+    
+}
+.fecha{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+}
+.contenedorPrograma{
+    width: 100%;
+}
+.boton{
+    border-radius: 20px;
+}
+.inputText{
+    margin-top: 10px;
+    width: 90%;
+    border: #3EA83D 1px solid;
+}
+select.inputText
+{
+    width: 95%;
+}
+.lista{
+background-color: rgb(255, 255, 255);
+}
+
+i{
+    color: white;
+}
+input,select {
+    width: 250px;
+    padding: 15px 12px;
+    margin-bottom: 5px;
+    border: 1px solid #e5e5e5;
+    border-bottom: 2px solid #ddd;
+    background: #f2f2f2;
+    color: #555;
+    border-radius: 20px;
+}
+
+
+.enlistar{
+    padding: 0%;
+    border-radius: 20px;
+    background-color: white;
+}
+.textoEnlistar{
+    font-weight: bold;
+    color: rgb(59, 59, 59);
+    font-family: 'dosis';
+}
+.boton-color{
+    background-color: #3FBAA8;
+}
+.list-sin-fondo{
+    background-color: #55555500;
+    border-radius: 20px;
+}
+.text-input--material:focus {
+background-image: linear-gradient(#9b9da9,#000000),linear-gradient(to top,transparent 1px,var(--material-text-input-inactive-color) 1px);
+}
+td{
+    padding-right: 25px;
+}
+
+.cookies {
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    padding: 10px;
+    color: white;
+    border-radius: 20px;
+    
+}
