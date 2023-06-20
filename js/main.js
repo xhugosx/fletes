@@ -134,3 +134,9 @@ function alertComfirm(mensaje,botones,miFuncion,json)
     } 
   });
 }
+
+document.addEventListener("backbutton", onBackKeyDown, false);
+
+function onBackKeyDown() {
+  document.querySelector('ons-navigator').popPage();
+}
