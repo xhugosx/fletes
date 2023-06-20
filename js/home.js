@@ -19,7 +19,7 @@ function llenarFecha()
 
 function setBuscarHome()
 {
-  console.log(fecha1,fecha2);
+  //console.log(fecha1,fecha2);
   servidor("https://fletes-delgado.000webhostapp.com/fletes/home/home.php?fecha1="+fecha1+"&fecha2="+fecha2,getBuscarHome);
 }
 function getBuscarHome(xhttp)

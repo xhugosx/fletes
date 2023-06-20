@@ -44,13 +44,14 @@ function setBuscarServicioEditar(id)
     //llenar option de los clientes
     setBuscarClienteServicio();
     setTimeout(() => {
-        servidor("https://fletes-delgado.000webhostapp.com/fletes/deben/clienteServicios.php?id="+id,getBuscarServicioEditar);
+        servidor("https://fletes-delgado.000webhostapp.com/fletes/deben/clienteServicios.php?id="+id+"&fecha1="+fecha1+"&fecha2="+fecha2,getBuscarServicioEditar);
     }, 200);
-    
+    //console.log("https://fletes-delgado.000webhostapp.com/fletes/deben/clienteServicios.php?id="+id+"&fecha1="+fecha1+"&fecha2="+fecha2);
 }
 function getBuscarServicioEditar(xhttp)
 {
     var respuesta = xhttp.responseText;
+    //console.log(respuesta);
     var arrayJson = respuesta.split('|');
     var tempJson = JSON.parse(arrayJson[0]);
     $('#id').val(tempJson.id);
@@ -62,6 +63,7 @@ function getBuscarServicioEditar(xhttp)
     $('#fecha').val(tempJson.fecha);
     $('#observaciones').val(tempJson.observaciones);
     $('#cliente').val(tempJson.idCliente);
+    
     
 }
 
@@ -77,7 +79,7 @@ function getMandarIngresoServicio(xhttp)
         alerta("Servicio Pagado");
         resetearPilaFunction(setBuscarClientesDeben);
     }
-    console.log(respuesta);
+    //console.log(respuesta);
 }
 
 
@@ -190,7 +192,7 @@ function enlistarClientesServicios(arrayJson)
     html += '            </tr>';
     html += '        </table>';
     html += '        <br>';
-    html += '        <center><div style="font-size: 25px; font-weight: bold; color:#C23B22">  $ '+new Intl.NumberFormat().format(arrayJson.costo)+'</div></center>';
+    html += '        <center><div style="font-size: 25px; font-weight: bold; color:#C23B22">  $'+new Intl.NumberFormat().format(arrayJson.costo)+'</div></center>';
     html += '    </div>'; 
     html += '</ons-card>';  
 
@@ -211,7 +213,7 @@ function enlistarClientesDeben(arrayJson)
     html += '            <span class="list-item__title" style="font-size:larger;margin-bottom: 5px;">'+arrayJson.nombre+'</span>';
     html += '            <span class="list-item__subtitle">Servicios: '+arrayJson.servicios+'</span>';
     html += '        </div>';
-    html += '        <div class="right" style="font-size:large; color:#C23B22"> <span style="font-weight:bold">$ '+new Intl.NumberFormat().format(arrayJson.debe)+'</span> </div>' ; 
+    html += '        <div class="right" style="font-size:large; color:#C23B22"> <span style="font-weight:bold">$'+new Intl.NumberFormat().format(arrayJson.debe)+'</span> </div>' ; 
     html += '    </ons-list-item>';  
     html += '</ons-card>';  
     return html;

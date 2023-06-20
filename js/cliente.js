@@ -108,7 +108,7 @@ function opciones(...datos)
 }
 function botonesOpciones(index,datos)
 {
-    console.log(datos);
+    //console.log(datos);
     if(index == 0) nextPageFunction('clienteEditar.html',llenarDatosCliente,datos); //alerta("Entro en editar"+datos);
     else if(index == 1) alertComfirm("Estas seguro de eliminar este cliente?",["Aceptar","Cancelar"],confirmarEliminar,datos[0]); //setEliminarCliente(id)
 }

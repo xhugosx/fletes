@@ -58,7 +58,7 @@ function enlistarClientesPagadoServicios(arrayJson)
     html += '        </table>';
     html += '        <br>';
     html += '        <div style="float: right; font-weight: bold; color: gray;">Pagado: '+arrayJson.fechaPagado+'</div>';
-    html += '        <center><div style="font-size: 25px; font-weight: bold; color:#03C03C">  $ '+new Intl.NumberFormat().format(arrayJson.costo)+'</div></center>';
+    html += '        <center><div style="font-size: 25px; font-weight: bold; color:#03C03C">  $'+new Intl.NumberFormat().format(arrayJson.costo)+'</div></center>';
     html += '    </div>'; 
     html += '</ons-card>';  
 
@@ -78,7 +78,7 @@ function enlistarClientesPagado(arrayJson)
     html += '            <span class="list-item__title" style="font-size:larger;margin-bottom: 5px;">'+arrayJson.nombre+'</span>';
     html += '            <span class="list-item__subtitle">Servicios: '+arrayJson.servicios+'</span>';
     html += '        </div>';
-    html += '        <div class="right" style="font-size:large; color:#03C03C"> <span style="font-weight:bold">$ '+new Intl.NumberFormat().format(arrayJson.debe)+'</span> </div>' ; 
+    html += '        <div class="right" style="font-size:large; color:#03C03C"> <span style="font-weight:bold">$'+new Intl.NumberFormat().format(arrayJson.debe)+'</span> </div>' ; 
     html += '    </ons-list-item>';  
     html += '</ons-card>';  
     return html;
