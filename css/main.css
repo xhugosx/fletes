@@ -35,8 +35,8 @@ span.back-button__icon, span.back-button__label{
 ons-card.boton:active{
     opacity: 50%;
 }
-span.tittle{
-    font-size: 15px;
+.tittle{
+    font-size: 30px; 
 }
 
 .boton-ingreso{

@@ -25,6 +25,7 @@ function setBuscarHome()
 function getBuscarHome(xhttp)
 {
   var arreglo = xhttp.responseText.split('|');
+  console.log(arreglo);
 
   deben = Number.isNaN(parseFloat (arreglo[0])) ? 0 : parseFloat (arreglo[0]);
   pagado = Number.isNaN(parseFloat (arreglo[1])) ? 0 : parseFloat (arreglo[1]);

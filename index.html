@@ -19,7 +19,7 @@
 
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
+
 
 
 
@@ -33,9 +33,9 @@
     <script src="./js/deben.js"></script>
     <script src="./js/pagado.js"></script>
 
-    
+
     <script src="./cordova.js"></script>
-    
+
     <!-- script de graficas -->
     <script src="./js/graficas/Chart.js"></script>
 
@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="./css/main.css">
 
     <title>Fletes</title>
-   
+
 </head>
 
 <body onload="setBuscarHome()">
@@ -63,41 +63,47 @@
                     </span>
                 </div>
                 <div class="right">
-                    <ons-toolbar-button onclick=" nextPageFunction('cliente.html',setMostrarClientes)"><i class="fa-solid fa-users fa-lg"></i> </ons-toolbar-button>
+                    <ons-toolbar-button onclick=" nextPageFunction('cliente.html',setMostrarClientes)"><i
+                            class="fa-solid fa-users fa-lg"></i> </ons-toolbar-button>
                 </div>
             </ons-toolbar>
-            
+
             <ons-card style="border-radius: 20px; padding: 10px;">
                 <center class="contenedor-flexbox">
-                    <input class="inputText" id="fecha1" modifier="underbar" type="date" disabled onchange="llenarFecha()"/>
+                    <input class="inputText" id="fecha1" modifier="underbar" type="date" disabled
+                        onchange="llenarFecha()" />
                     <span style="font-weight: bold; color: black; margin-left: 10px; margin-right: 10px;">A</span>
-                    <input class="inputText" id="fecha2" modifier="underbar" type="date" disabled onchange="llenarFecha()"/>
+                    <input class="inputText" id="fecha2" modifier="underbar" type="date" disabled
+                        onchange="llenarFecha()" />
                     <div style="margin: 10px;">
-                        <ons-checkbox name="color" input-id="radioTodo" onclick="bloquearFechas(event)" checked></ons-checkbox> <br> Todo
-                    </div> 
+                        <ons-checkbox name="color" input-id="radioTodo" onclick="bloquearFechas(event)"
+                            checked></ons-checkbox> <br> Todo
+                    </div>
                 </center>
             </ons-card>
-            
-            
-            
+
+
+
 
             <div id="wrapper"></div>
             <center class="contenedor-flexbox">
-                <ons-card class="contenedorPrograma boton" onclick="nextPageFunction('deben.html',setBuscarClientesDeben)">
+                <ons-card class="contenedorPrograma boton"
+                    onclick="nextPageFunction('deben.html',setBuscarClientesDeben)">
                     <span class="title">
                         Deben
                     </span>
-                    
+
                     <div class="content">
                         <span class="deben" id="deben">
                             &nbsp;$ 200.00
                         </span>
-                       
+
                     </div>
-                    
+
                 </ons-card>
-    
-                <ons-card class="contenedorPrograma boton" onclick="nextPageFunction('pagado.html',setBuscarClientesPagado)">
+
+                <ons-card class="contenedorPrograma boton"
+                    onclick="nextPageFunction('pagado.html',setBuscarClientesPagado)">
                     <span class="title">
                         Pagado
                     </span>
@@ -105,30 +111,33 @@
                         <span class="deben" id="pagado">
                             &nbsp;$ 800.00
                         </span>
-                       
+
                     </div>
-            
+
                 </ons-card>
             </center>
-            
 
-            <ons-card class=" boton">
-                <span class="title">
-                    Total
-                </span>
-                <div class="content">
-                    <span class="deben" id="total">
-                        &nbsp;$ 1000.00
+
+            <ons-card class="boton">
+                <center>
+                    <span class="tittle">
+                        Total
                     </span>
-                   
-                </div>
-        
+                    <div class="content">
+                        <span class="deben" id="total">
+                            &nbsp;$ 1000.00
+                        </span>
+
+                    </div>
+                </center>
+
+
             </ons-card>
-            
+
             <ons-card class="boton">
                 <canvas id="grafica" width="100vh" height="60px"></canvas>
             </ons-card>
-            
+
             <br>
             <!--center>
                 <ons-button modifier="large" class="boton-ingreso" style="background-color: #3FBAA8" onclick="nextPage('ingresos.html')">
@@ -140,7 +149,9 @@
 
             <ons-card class="cookies" style="padding: 15px;">
                 <center>
-                    <ons-button modifier="large" class=" boton-color" onclick="nextPageFunction('servicioAgregar.html',setBuscarClienteServicio)" style="border-radius: 20px;">
+                    <ons-button modifier="large" class=" boton-color"
+                        onclick="nextPageFunction('servicioAgregar.html',setBuscarClienteServicio)"
+                        style="border-radius: 20px;">
                         </i> Agregar Servicio
                     </ons-button>
                 </center>
@@ -157,12 +168,12 @@
                 <div class="left"><ons-back-button>Regresar</ons-back-button></div>
                 <div class="center">
                     <span class="tituloCabecera">
-                       Ingresos
+                        Ingresos
                     </span>
                 </div>
             </ons-toolbar>
-            
-            
+
+
         </ons-page>
     </template>
     <!-- FIN DE INGRESOS -->
@@ -175,16 +186,16 @@
                 <div class="left"><ons-back-button>Regresar</ons-back-button></div>
                 <div class="center">
                     <span class="tituloCabecera">
-                       Clientes
+                        Clientes
                     </span>
                 </div>
             </ons-toolbar>
             <div id="loadingCliente">
-                
+
             </div>
 
             <!--EJEMPLO DE ENLISTADO-->
-           
+
 
             <ons-list style="background: rgba(76, 175, 80, 0.0) ">
                 <ons-lazy-repeat id="listaClientes"></ons-lazy-repeat>
@@ -193,16 +204,17 @@
 
             <ons-card class="cookies" style="padding: 15px;">
                 <center>
-                    <ons-button modifier="large" class=" boton-color" onclick="nextPage('clienteAgregar.html')" style="border-radius: 20px;">
+                    <ons-button modifier="large" class=" boton-color" onclick="nextPage('clienteAgregar.html')"
+                        style="border-radius: 20px;">
                         Agregar Cliente
                     </ons-button>
                 </center>
             </ons-card>
-            
+
         </ons-page>
     </template>
     <!-- FIN DE VER CLIENTES -->
-    
+
     <!-- AGREGAR CLIENTES -->
     <template id="clienteAgregar.html">
         <ons-page id="page1" style="background-color: black;">
@@ -210,11 +222,11 @@
                 <div class="left"><ons-back-button>Regresar</ons-back-button></div>
                 <div class="center">
                     <span class="tituloCabecera">
-                       Agregar Clientes
+                        Agregar Clientes
                     </span>
                 </div>
             </ons-toolbar>
-            
+
             <ons-card class=" boton" style="padding: 0;">
                 <ons-list-item modifier="nodivider">
                     <div class="left">
@@ -223,18 +235,20 @@
                     <div class="center">
                         <span class="list-item__title" style="color: #44BD66"></span>
                         <span class="list-item__subtitle">
-                        <input class="inputText" id="cliente" modifier="underbar" placeholder="Aqui escribe el nombre" />
+                            <input class="inputText" id="cliente" modifier="underbar"
+                                placeholder="Aqui escribe el nombre" />
                         </span>
                     </div>
                 </ons-list-item>
             </ons-card>
-            
+
             <br>
             <ons-card class="cookies" style="padding: 15px;">
                 <center>
-           
-                    <ons-button modifier="large" class="boton-color" onclick="setAgregarClient()" style="border-radius: 20px;">
-                        <i class="fa-solid fa-plus" ></i> Agregar
+
+                    <ons-button modifier="large" class="boton-color" onclick="setAgregarClient()"
+                        style="border-radius: 20px;">
+                        <i class="fa-solid fa-plus"></i> Agregar
                     </ons-button>
                 </center>
             </ons-card>
@@ -250,12 +264,12 @@
                 <div class="left"><ons-back-button>Regresar</ons-back-button></div>
                 <div class="center">
                     <span class="tituloCabecera">
-                       Editar Clientes
+                        Editar Clientes
                     </span>
                 </div>
             </ons-toolbar>
-            
-            <ons-card  style="padding: 0; border-radius: 20px;">
+
+            <ons-card style="padding: 0; border-radius: 20px;">
                 <ons-list class="list-sin-fondo">
                     <ons-list-item modifier="nodivider">
                         <div class="left">
@@ -264,11 +278,11 @@
                         <div class="center">
                             <span class="list-item__title" style="color: #44BD66"></span>
                             <span class="list-item__subtitle">
-                            <input class="inputText" id="id" modifier="underbar" disabled />
+                                <input class="inputText" id="id" modifier="underbar" disabled />
                             </span>
                         </div>
                     </ons-list-item>
-                    
+
                     <ons-list-item modifier="nodivider">
                         <div class="left">
                             <i class="fa-solid fa-user fa-2x" style="color: #44BD66"></i>
@@ -276,23 +290,25 @@
                         <div class="center">
                             <span class="list-item__title" style="color: #44BD66"></span>
                             <span class="list-item__subtitle">
-                            <input class="inputText" id="cliente" modifier="underbar" placeholder="Aqui escribe el nombre" />
+                                <input class="inputText" id="cliente" modifier="underbar"
+                                    placeholder="Aqui escribe el nombre" />
                             </span>
                         </div>
                     </ons-list-item>
                 </ons-list>
-                
+
             </ons-card>
-            
+
             <br>
             <ons-card class="cookies" style="padding: 15px;">
                 <center>
-                    <ons-button modifier="large" class="boton-color" onclick="setEditarCliente()" style="border-radius: 20px;">
-                        <i class="fa-solid fa-edit" ></i> Editar
+                    <ons-button modifier="large" class="boton-color" onclick="setEditarCliente()"
+                        style="border-radius: 20px;">
+                        <i class="fa-solid fa-edit"></i> Editar
                     </ons-button>
                 </center>
             </ons-card>
-            
+
 
         </ons-page>
     </template>
@@ -307,12 +323,12 @@
                 <div class="left"><ons-back-button>Regresar</ons-back-button></div>
                 <div class="center">
                     <span class="tituloCabecera">
-                       Agregar Servicio
+                        Agregar Servicio
                     </span>
                 </div>
             </ons-toolbar>
-            
-            <ons-card  style="padding: 0; border-radius: 20px;">
+
+            <ons-card style="padding: 0; border-radius: 20px;">
                 <ons-list class="list-sin-fondo">
 
                     <ons-list-item modifier="nodivider">
@@ -320,13 +336,13 @@
                             <i class="fa-solid fa-users fa-2x" style="color: #44BD66"></i>
                         </div>
                         <div class="center">
-            
-                            
-                            <select class="inputText" id="cliente" >
+
+
+                            <select class="inputText" id="cliente">
                                 <option value="" selected>-- Clientes --</option>
                             </select>
-                            
-                            
+
+
                         </div>
                     </ons-list-item>
 
@@ -335,21 +351,21 @@
                             <i class="fa-solid fa-truck-moving fa-2x" style="color: #44BD66"></i>
                         </div>
                         <div class="center">
-                            
-                            <input class="inputText" id="origen" placeholder="Origen" modifier="underbar"/>
+
+                            <input class="inputText" id="origen" placeholder="Origen" modifier="underbar" />
                             <input class="inputText" id="hrInicio" modifier="underbar" type="time" />
                         </div>
                     </ons-list-item>
-                    
+
                     <ons-list-item modifier="nodivider">
                         <div class="left">
                             <i class="fa-solid fa-truck-ramp-box fa-2x" style="color: #44BD66"></i>
                         </div>
                         <div class="center">
-            
+
                             <input class="inputText" id="destino" modifier="underbar" placeholder="Destino" />
                             <input class="inputText" id="hrTermino" modifier="underbar" type="time" />
-                            
+
                         </div>
                     </ons-list-item>
 
@@ -358,9 +374,9 @@
                             <i class="fa-solid fa-dollar-sign fa-2x" style="color: #44BD66"></i>
                         </div>
                         <div class="center">
-            
-                            <input class="inputText" id="costo" modifier="underbar" placeholder="Costo" type="number"/>
-                            
+
+                            <input class="inputText" id="costo" modifier="underbar" placeholder="Costo" type="number" />
+
                         </div>
                     </ons-list-item>
 
@@ -369,9 +385,9 @@
                             <i class="fa-solid fa-calendar-days fa-2x" style="color: #44BD66"></i>
                         </div>
                         <div class="center">
-            
-                            <input class="inputText" id="fecha" modifier="underbar" type="date"/>
-                            
+
+                            <input class="inputText" id="fecha" modifier="underbar" type="date" />
+
                         </div>
                     </ons-list-item>
 
@@ -380,25 +396,27 @@
                             <i class="fa-solid fa-message fa-2x" style="color: #44BD66"></i>
                         </div>
                         <div class="center">
-            
-                            <input class="inputText" id="observaciones" modifier="underbar" placeholder="Observaciones (Opcional)" type="text"/>
-                            
+
+                            <input class="inputText" id="observaciones" modifier="underbar"
+                                placeholder="Observaciones (Opcional)" type="text" />
+
                         </div>
                     </ons-list-item>
                 </ons-list>
-                
+
             </ons-card>
-            
-            <br> <br> <br> <br> 
+
+            <br> <br> <br> <br>
             <ons-card class="cookies" style="padding: 15px;">
                 <center>
-                    <ons-button modifier="large" class=" boton-color" onclick="setAgregarServicio()" style="border-radius: 20px;">
-                        <i class="fa-solid fa-floppy-disk" ></i> Guardar
+                    <ons-button modifier="large" class=" boton-color" onclick="setAgregarServicio()"
+                        style="border-radius: 20px;">
+                        <i class="fa-solid fa-floppy-disk"></i> Guardar
                     </ons-button>
                 </center>
             </ons-card>
-            
-            
+
+
 
         </ons-page>
     </template>
@@ -411,12 +429,12 @@
                 <div class="left"><ons-back-button>Regresar</ons-back-button></div>
                 <div class="center">
                     <span class="tituloCabecera">
-                       Editar Servicio
+                        Editar Servicio
                     </span>
                 </div>
             </ons-toolbar>
-            
-            <ons-card  style="padding: 0; border-radius: 20px;">
+
+            <ons-card style="padding: 0; border-radius: 20px;">
                 <ons-list class="list-sin-fondo">
 
 
@@ -425,8 +443,8 @@
                             <i class="fa-solid fa-key fa-2x" style="color: #44BD66"></i>
                         </div>
                         <div class="center">
-                            
-                            <input class="inputText" id="id" placeholder="" modifier="underbar" disabled/>
+
+                            <input class="inputText" id="id" placeholder="" modifier="underbar" disabled />
 
                         </div>
                     </ons-list-item>
@@ -436,13 +454,13 @@
                             <i class="fa-solid fa-users fa-2x" style="color: #44BD66"></i>
                         </div>
                         <div class="center">
-            
-                            
-                            <select class="inputText" id="cliente" >
+
+
+                            <select class="inputText" id="cliente">
                                 <option value="" selected>-- Clientes --</option>
                             </select>
-                            
-                            
+
+
                         </div>
                     </ons-list-item>
 
@@ -451,21 +469,21 @@
                             <i class="fa-solid fa-truck-moving fa-2x" style="color: #44BD66"></i>
                         </div>
                         <div class="center">
-                            
-                            <input class="inputText" id="origen" placeholder="Origen" modifier="underbar"/>
+
+                            <input class="inputText" id="origen" placeholder="Origen" modifier="underbar" />
                             <input class="inputText" id="hrInicio" modifier="underbar" type="time" />
                         </div>
                     </ons-list-item>
-                    
+
                     <ons-list-item modifier="nodivider">
                         <div class="left">
                             <i class="fa-solid fa-truck-ramp-box fa-2x" style="color: #44BD66"></i>
                         </div>
                         <div class="center">
-            
+
                             <input class="inputText" id="destino" modifier="underbar" placeholder="Destino" />
                             <input class="inputText" id="hrTermino" modifier="underbar" type="time" />
-                            
+
                         </div>
                     </ons-list-item>
 
@@ -474,9 +492,9 @@
                             <i class="fa-solid fa-dollar-sign fa-2x" style="color: #44BD66"></i>
                         </div>
                         <div class="center">
-            
-                            <input class="inputText" id="costo" modifier="underbar" placeholder="Costo" type="number"/>
-                            
+
+                            <input class="inputText" id="costo" modifier="underbar" placeholder="Costo" type="number" />
+
                         </div>
                     </ons-list-item>
 
@@ -485,9 +503,9 @@
                             <i class="fa-solid fa-calendar-days fa-2x" style="color: #44BD66"></i>
                         </div>
                         <div class="center">
-            
-                            <input class="inputText" id="fecha" modifier="underbar" type="date"/>
-                            
+
+                            <input class="inputText" id="fecha" modifier="underbar" type="date" />
+
                         </div>
                     </ons-list-item>
 
@@ -496,25 +514,27 @@
                             <i class="fa-solid fa-message fa-2x" style="color: #44BD66"></i>
                         </div>
                         <div class="center">
-            
-                            <input class="inputText" id="observaciones" modifier="underbar" placeholder="Observaciones (Opcional)" type="text"/>
-                            
+
+                            <input class="inputText" id="observaciones" modifier="underbar"
+                                placeholder="Observaciones (Opcional)" type="text" />
+
                         </div>
                     </ons-list-item>
                 </ons-list>
-                
+
             </ons-card>
-            
-            <br> <br> <br> <br> 
+
+            <br> <br> <br> <br>
             <ons-card class="cookies" style="padding: 15px;">
                 <center>
-                    <ons-button modifier="large" class=" boton-color" onclick="setEditarServicio()" style="border-radius: 20px;">
-                        <i class="fa-solid fa-edit" ></i> Editar Servicio
+                    <ons-button modifier="large" class=" boton-color" onclick="setEditarServicio()"
+                        style="border-radius: 20px;">
+                        <i class="fa-solid fa-edit"></i> Editar Servicio
                     </ons-button>
                 </center>
             </ons-card>
-            
-            
+
+
 
         </ons-page>
     </template>
@@ -527,22 +547,22 @@
                 <div class="left"><ons-back-button>Regresar</ons-back-button></div>
                 <div class="center">
                     <span class="tituloCabecera">
-                       Deudores
+                        Deudores
                     </span>
                 </div>
             </ons-toolbar>
 
             <div id="loadingClienteDeben">
-                
+
             </div>
 
             <!--EJEMPLO DE ENLISTADO-->
-            
+
 
             <ons-list style="background: rgba(76, 175, 80, 0.0) ">
                 <ons-lazy-repeat id="listaClientesDeben"></ons-lazy-repeat>
             </ons-list>
-            
+
         </ons-page>
     </template>
     <!-- FIN DE VER DEBEN -->
@@ -554,25 +574,25 @@
                 <div class="left"><ons-back-button>Regresar</ons-back-button></div>
                 <div class="center">
                     <span class="tituloCabecera">
-                       Saldado
+                        Saldado
                     </span>
                 </div>
             </ons-toolbar>
 
             <div id="loadingClientePagado">
-                
+
             </div>
 
             <!--EJEMPLO DE ENLISTADO-->
-            
-        
+
+
 
             <ons-list style="background: rgba(76, 175, 80, 0.0) ">
                 <ons-lazy-repeat id="listaClientesPagado"></ons-lazy-repeat>
             </ons-list>
-            
-            
-            
+
+
+
         </ons-page>
     </template>
     <!-- FIN DE VER PAGADO -->
@@ -584,13 +604,13 @@
                 <div class="left"><ons-back-button>Regresar</ons-back-button></div>
                 <div class="center">
                     <span class="tituloCabecera">
-                       Servicios
+                        Servicios
                     </span>
                 </div>
             </ons-toolbar>
 
             <div id="loadingServicios">
-                
+
             </div>
 
             <!--EJEMPLO DE ENLISTADO-->
@@ -598,38 +618,38 @@
             <ons-list style="background: rgba(76, 175, 80, 0.0) ">
                 <ons-lazy-repeat id="listaServicios"></ons-lazy-repeat>
             </ons-list>
-            
+
         </ons-page>
     </template>
     <!-- FIN DE VER PAGADO DEBE -->
 
-     <!-- VER CLIENTES SERVICIOS PAGADO-->
-     <template id="serviciosPagado.html">
+    <!-- VER CLIENTES SERVICIOS PAGADO-->
+    <template id="serviciosPagado.html">
         <ons-page id="page1" style="background-color: black;">
             <ons-toolbar class="cabecera">
                 <div class="left"><ons-back-button>Regresar</ons-back-button></div>
                 <div class="center">
                     <span class="tituloCabecera">
-                       Servicios
+                        Servicios
                     </span>
                 </div>
             </ons-toolbar>
 
             <div id="loadingServiciosPagado">
-                
+
             </div>
 
             <!--EJEMPLO DE ENLISTADO-->
-            
-            
-        
+
+
+
 
             <ons-list style="background: rgba(76, 175, 80, 0.0) ">
                 <ons-lazy-repeat id="listaServiciosPagado"></ons-lazy-repeat>
             </ons-list>
-            
-            
-            
+
+
+
         </ons-page>
     </template>
     <!-- FIN VER CLIENTES SERVICIOS PAGADO -->
