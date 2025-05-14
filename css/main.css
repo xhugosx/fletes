@@ -3,49 +3,56 @@
     src: url('../font/Dosis-VariableFont_wght.ttf');
 }
 
-*{
+* {
     font-family: 'dosis';
 }
 
-.tituloCabecera{
+.tituloCabecera {
     font-size: 20px;
     font-weight: bold;
     color: white;
 }
-.cabecera{
-    background: #3FA378;
-}
-.page__background{
-    background: #3FA378;
+
+.cabecera {
+    background: black;
 }
 
-ons-toolbar-button > i{
+.page__background {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(63, 163, 120, 1) 61%);
+}
+
+ons-toolbar-button>i {
     color: rgb(255, 255, 255);
 }
 
-.deben{
+.deben {
     color: gray;
     font-weight: bold;
     font-size: 30px;
 }
-span.back-button__icon, span.back-button__label{
+
+span.back-button__icon,
+span.back-button__label {
     fill: white;
     color: white;
 }
-ons-card.boton:active{
+
+ons-card.boton:active {
     opacity: 50%;
 }
-.tittle{
-    font-size: 30px; 
+
+.tittle {
+    font-size: 30px;
 }
 
-.boton-ingreso{
+.boton-ingreso {
 
     width: 400px;
     /*background-color: rgb(137, 112, 161);*/
     border-radius: 10px;
 }
-.boton-busqueda{
+
+.boton-busqueda {
 
     width: 100px;
     /*background-color: rgb(137, 112, 161);*/
@@ -54,39 +61,49 @@ ons-card.boton:active{
 }
 
 .contenedor-flexbox {
-    display: flex; /*Convertimos al menú en flexbox*/
-    justify-content: space-between; /*Con esto le indicamos que margine todos los items que se encuentra adentro hacia la derecha e izquierda*/
-    align-items: center; /*con esto alineamos de manera vertical*/
-    
+    display: flex;
+    /*Convertimos al menú en flexbox*/
+    justify-content: space-between;
+    /*Con esto le indicamos que margine todos los items que se encuentra adentro hacia la derecha e izquierda*/
+    align-items: center;
+    /*con esto alineamos de manera vertical*/
+
 }
-.fecha{
+
+.fecha {
     width: 100%;
     height: 50px;
     padding: 10px;
 }
-.contenedorPrograma{
+
+.contenedorPrograma {
     width: 100%;
 }
-.boton{
+
+.boton {
     border-radius: 20px;
 }
-.inputText{
+
+.inputText {
     margin-top: 10px;
     width: 90%;
     border: #3EA83D 1px solid;
 }
-select.inputText
-{
+
+select.inputText {
     width: 95%;
 }
-.lista{
-background-color: rgb(255, 255, 255);
+
+.lista {
+    background-color: rgb(255, 255, 255);
 }
 
-i{
+i {
     color: white;
 }
-input,select {
+
+input,
+select {
     width: 250px;
     padding: 15px 12px;
     margin-bottom: 5px;
@@ -98,27 +115,32 @@ input,select {
 }
 
 
-.enlistar{
+.enlistar {
     padding: 0%;
     border-radius: 20px;
     background-color: white;
 }
-.textoEnlistar{
+
+.textoEnlistar {
     font-weight: bold;
     color: rgb(59, 59, 59);
     font-family: 'dosis';
 }
-.boton-color{
+
+.boton-color {
     background-color: #3FBAA8;
 }
-.list-sin-fondo{
+
+.list-sin-fondo {
     background-color: #55555500;
     border-radius: 20px;
 }
+
 .text-input--material:focus {
-background-image: linear-gradient(#9b9da9,#000000),linear-gradient(to top,transparent 1px,var(--material-text-input-inactive-color) 1px);
+    background-image: linear-gradient(#9b9da9, #000000), linear-gradient(to top, transparent 1px, var(--material-text-input-inactive-color) 1px);
 }
-td{
+
+td {
     padding-right: 25px;
 }
 
@@ -131,9 +153,36 @@ td{
     padding: 10px;
     color: white;
     border-radius: 20px;
-    
+
 }
 
 input:disabled {
     background: #ccc;
-  }
+}
+
+.title {
+    font-family: Tahoma;
+    font-size: 20px;
+    letter-spacing: 1px;
+    word-spacing: 0px;
+    font-weight: bold;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    text-align: center;
+    /* Centra el texto dentro de su contenedor */
+    display: block;
+    /* Convierte el span en un bloque */
+    margin: auto;
+    /* Centra el bloque */
+}
+.debenT{
+    color: #d44040;
+}
+.pagadoT{
+    color: #3ebf6d;
+}
+ons-card{
+    background-color: rgba(255, 255, 255, 0.939) !important;
+}

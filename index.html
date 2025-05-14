@@ -20,11 +20,7 @@
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-
-
-
     <!-- mi js-->
-    <script src="./js/egresos.js"></script>
     <script src="./js/ingreso.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/home.js"></script>
@@ -83,36 +79,38 @@
             </ons-card>
 
 
-
-
             <div id="wrapper"></div>
             <center class="contenedor-flexbox">
                 <ons-card class="contenedorPrograma boton"
                     onclick="nextPageFunction('deben.html',setBuscarClientesDeben)">
-                    <span class="title">
+                    <span class="title debenT">
                         Deben
                     </span>
+                    <center>
+                        <div class="content">
+                            <span class="deben" id="deben">
+                                &nbsp;$2000.00
+                            </span>
+                        </div>
+                    </center>
 
-                    <div class="content">
-                        <span class="deben" id="deben">
-                            &nbsp;$ 200.00
-                        </span>
-
-                    </div>
 
                 </ons-card>
 
                 <ons-card class="contenedorPrograma boton"
                     onclick="nextPageFunction('pagado.html',setBuscarClientesPagado)">
-                    <span class="title">
+                    <span class="title pagadoT">
                         Pagado
                     </span>
-                    <div class="content">
-                        <span class="deben" id="pagado">
-                            &nbsp;$ 800.00
-                        </span>
+                    <center>
+                        <div class="content">
+                            <span class="deben" id="pagado">
+                                &nbsp;$80000.00
+                            </span>
 
-                    </div>
+                        </div>
+                    </center>
+
 
                 </ons-card>
             </center>
@@ -236,7 +234,8 @@
                         <span class="list-item__title" style="color: #44BD66"></span>
                         <span class="list-item__subtitle">
                             <input class="inputText" id="cliente" modifier="underbar"
-                                placeholder="Aqui escribe el nombre" />
+                                placeholder="Aqui escribe el nombre" style="text-transform: uppercase;" />
+
                         </span>
                     </div>
                 </ons-list-item>
@@ -291,7 +290,7 @@
                             <span class="list-item__title" style="color: #44BD66"></span>
                             <span class="list-item__subtitle">
                                 <input class="inputText" id="cliente" modifier="underbar"
-                                    placeholder="Aqui escribe el nombre" />
+                                    placeholder="Aqui escribe el nombre" style="text-transform: uppercase;" />
                             </span>
                         </div>
                     </ons-list-item>
@@ -352,7 +351,8 @@
                         </div>
                         <div class="center">
 
-                            <input class="inputText" id="origen" placeholder="Origen" modifier="underbar" />
+                            <input class="inputText" id="origen" placeholder="Origen" modifier="underbar"
+                                style="text-transform: uppercase;" />
                             <input class="inputText" id="hrInicio" modifier="underbar" type="time" />
                         </div>
                     </ons-list-item>
@@ -363,7 +363,8 @@
                         </div>
                         <div class="center">
 
-                            <input class="inputText" id="destino" modifier="underbar" placeholder="Destino" />
+                            <input class="inputText" id="destino" modifier="underbar" placeholder="Destino"
+                                style="text-transform: uppercase;" />
                             <input class="inputText" id="hrTermino" modifier="underbar" type="time" />
 
                         </div>
@@ -470,7 +471,8 @@
                         </div>
                         <div class="center">
 
-                            <input class="inputText" id="origen" placeholder="Origen" modifier="underbar" />
+                            <input class="inputText" id="origen" placeholder="Origen" modifier="underbar"
+                                style="text-transform: uppercase;" />
                             <input class="inputText" id="hrInicio" modifier="underbar" type="time" />
                         </div>
                     </ons-list-item>
@@ -481,7 +483,8 @@
                         </div>
                         <div class="center">
 
-                            <input class="inputText" id="destino" modifier="underbar" placeholder="Destino" />
+                            <input class="inputText" id="destino" modifier="underbar" placeholder="Destino"
+                                style="text-transform: uppercase;" />
                             <input class="inputText" id="hrTermino" modifier="underbar" type="time" />
 
                         </div>
@@ -516,7 +519,7 @@
                         <div class="center">
 
                             <input class="inputText" id="observaciones" modifier="underbar"
-                                placeholder="Observaciones (Opcional)" type="text" />
+                                placeholder="Observaciones (Opcional)" type="text" style="text-transform: uppercase;" />
 
                         </div>
                     </ons-list-item>
@@ -562,6 +565,7 @@
             <ons-list style="background: rgba(76, 175, 80, 0.0) ">
                 <ons-lazy-repeat id="listaClientesDeben"></ons-lazy-repeat>
             </ons-list>
+
 
         </ons-page>
     </template>
